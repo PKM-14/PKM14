@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>This is Pranit Malhotra</title>
+
+    <!-- Google Font: Exo 2 -->
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -11,13 +15,18 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Exo 2', sans-serif;
             background-image: url('photo-1557682260-96773eb01377.jpg');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
             color: #ffffff;
+            overflow-x: hidden;
         }
 
         .navbar {
@@ -30,11 +39,7 @@
             align-items: center;
             padding: 10px 20px;
             z-index: 10;
-            transition: background-color 0.3s ease;
-        }
-
-        .navbar.scrolled {
-            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         .navbar img {
@@ -44,8 +49,8 @@
 
         .navbar h1 {
             color: white;
-            font-family: 'Exo 2', serif;
             font-size: 22px;
+            animation: slideDown 1.2s ease;
         }
 
         .nav-links {
@@ -57,16 +62,37 @@
             text-decoration: none;
             padding: 14px 20px;
             display: block;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .nav-links a:hover {
             background-color: #575757;
+            transform: scale(1.05);
+        }
+
+        @media screen and (max-width: 600px) {
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
         }
 
         .section {
             padding: 120px 20px 60px 20px;
             text-align: center;
-            background-color: rgba(204, 69, 2);
+            background-color: rgba(204, 69, 2, 0.85);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .section:nth-of-type(2) {
+            animation-delay: 0.3s;
         }
 
         .section img {
@@ -83,6 +109,11 @@
             text-decoration: none;
             display: block;
             margin: 10px 0;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #ff6f00;
         }
 
         .footer p {
@@ -99,24 +130,34 @@
             margin-bottom: 20px;
         }
 
-        /* Initial state for the images */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        /* Animations */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* Triggered when the image enters the viewport */
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
+        @keyframes slideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 
 <body>
     <div class="navbar">
-        <img src="Screenshot 2025-03-02 101253.png" alt="Logo">
+        <img src="Screenshot 2025-03-02 101253.png" alt="Logo" />
         <h1>This is Pranit Malhotra</h1>
         <div class="nav-links">
             <a href="#about">About</a>
@@ -128,9 +169,9 @@
     <div class="section" id="about">
         <h1><em>About Me (Professional)</em></h1>
         <p>
-            I am Pranit Malhotra, a student at St Olave's Grammar School in Orpington. I have a strong academic interest in Physics, Mathematics, and Chemistry, especially within the realm of Aerodynamics and Aerospace Engineering.
+            I am Pranit Malhotra, a student at St Olave's Grammar School in Orpington. I have a strong academic interest in Physics, Mathematics, and Chemistry, especially within the realm of Aerodynamics and Aerospace Engineering. 
             <br><br>
-            I have participated in prestigious competitions such as the UKMT Maths Challenge, advancing to both the Junior and Intermediate Olympiads, and I placed in the Top 100 in the British Physics Olympiad.
+            I have participated in prestigious competitions such as the UKMT Maths Challenge, advancing to both the Junior and Intermediate Olympiads, and I placed in the Top 100 in the British Physics Olympiad. 
             <br><br>
             As a member of Team Blitz in the F1 in Schools competition (now STEM Racing), I discovered a passion for precision engineering and manufacturing. This project allowed me to develop teamwork, leadership, and resilience while striving for engineering excellence.
             <br><br>
@@ -138,27 +179,27 @@
         </p>
 
         <h1><em>About Me (Personal)</em></h1>
-        <img src="Screenshot 2025-03-01 114447.png" class="animate-on-scroll" style="width:500px;height:300px;" alt="Personal image">
+        <img src="Screenshot 2025-03-01 114447.png" style="width:500px;height:300px;" alt="Personal image" />
     </div>
 
     <div class="section" id="services">
         <h1>Certificates</h1>
         <p>This section showcases my major academic and extracurricular achievements.</p>
         <p><strong>Nationals 3rd Place — Team Blitz!</strong></p>
-
-        <img src="Nats 3rd place photo.jpg" class="animate-on-scroll" style="width:800px;height:500px;" alt="Nationals 3rd Place">
-        <img src="77706285_1737741803200348_r.webp" class="animate-on-scroll" style="width:800px;height:500px;" alt="Team Achievement">
-        <img src="Screenshot 2025-03-03 202557.png" class="animate-on-scroll" style="width:800px;height:500px;" alt="Award Screenshot">
-        <img src="jmc.png" class="animate-on-scroll" style="width:800px;height:300px;" alt="JMC Certificate">
+        
+        <img src="Nats 3rd place photo.jpg" style="width:800px;height:500px;" alt="Nationals 3rd Place" />
+        <img src="77706285_1737741803200348_r.webp" style="width:800px;height:500px;" alt="Team Achievement" />
+        <img src="Screenshot 2025-03-03 202557.png" style="width:800px;height:500px;" alt="Award Screenshot" />
+        <img src="jmc.png" style="width:800px;height:300px;" alt="JMC Certificate" />
 
         <h3 style="padding: 40px;">Design and Engineering Portfolio – Nationals Development Class</h3>
-        <img src="1 blitz d&e nats .png" class="animate-on-scroll" alt="D&E Page 1">
-        <img src="2 blitz d&e nats .png" class="animate-on-scroll" alt="D&E Page 2">
-        <img src="3 blitz d&e nats .png" class="animate-on-scroll" alt="D&E Page 3">
-        <img src="4 blitz d&e nats .png" class="animate-on-scroll" alt="D&E Page 4">
-        <img src="5 blitz d&e nats .png" class="animate-on-scroll" alt="D&E Page 5">
-        <img src="6 blitz d&e nats .png" class="animate-on-scroll" alt="D&E Page 6">
-        <img src="7 blitz d&e nats .png" class="animate-on-scroll" alt="D&E Page 7">
+        <img src="1 blitz d&e nats .png" alt="D&E Page 1" />
+        <img src="2 blitz d&e nats .png" alt="D&E Page 2" />
+        <img src="3 blitz d&e nats .png" alt="D&E Page 3" />
+        <img src="4 blitz d&e nats .png" alt="D&E Page 4" />
+        <img src="5 blitz d&e nats .png" alt="D&E Page 5" />
+        <img src="6 blitz d&e nats .png" alt="D&E Page 6" />
+        <img src="7 blitz d&e nats .png" alt="D&E Page 7" />
     </div>
 
     <div class="footer" id="contact">
@@ -171,8 +212,7 @@
         <a href="https://www.instagram.com/team_blitz8/">Visit Team Blitz Instagram</a>
         <p>____________________</p>
         <a href="https://www.gofundme.com/f/team-blitz8/donations">Visit Team Blitz GoFundMe</a>
-        <img src="Screenshot 2025-03-03 191631.png" alt="Contact QR or Promo">
+        <img src="Screenshot 2025-03-03 191631.png" alt="Contact QR or Promo" />
     </div>
 </body>
 </html>
-
