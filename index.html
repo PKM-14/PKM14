@@ -17,14 +17,8 @@
     --badge-text: #0b132b;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-
 body {
     font-family: "Segoe UI", Inter, sans-serif;
     background-color: var(--bg-primary);
@@ -46,7 +40,6 @@ body {
     z-index: 1000;
     border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-
 .navbar h1 { font-size: 20px; font-weight: 600; }
 .nav-links a {
     color: var(--text-muted);
@@ -69,12 +62,12 @@ body {
     padding: 0 20px;
     background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
 }
-
 .hero h1 { font-size: 3rem; margin-bottom: 16px; animation: fadeInDown 1s ease forwards; }
-.hero p { font-size: 1.25rem; color: var(--accent); max-width: 800px; animation: fadeInDown 1.2s ease forwards; }
+.hero p { font-size: 1.25rem; color: var(--accent); max-width: 1000px; animation: fadeInDown 1.2s ease forwards; }
+
 .badges {
     display: flex;
-    gap: 12px;
+    gap: 24px;
     margin-top: 20px;
     flex-wrap: wrap;
     justify-content: center;
@@ -82,56 +75,42 @@ body {
 .badge {
     background-color: var(--badge-bg);
     color: var(--badge-text);
-    padding: 6px 12px;
-    border-radius: 12px;
+    padding: 8px 16px;
+    border-radius: 16px;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 1rem;
     opacity: 0;
     transform: translateY(20px);
 }
 
 /* ---------- SECTION STYLE ---------- */
 section {
-    padding: 100px 20px 80px;
+    padding: 100px 40px 80px;
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.8s ease;
 }
-
 section.visible { opacity: 1; transform: translateY(0); }
-
-.container { max-width: 1000px; margin: auto; }
-
 section h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
+    font-size: 36px;
+    margin-bottom: 30px;
     letter-spacing: 0.5px;
     border-bottom: 2px solid var(--accent);
     display: inline-block;
     padding-bottom: 6px;
 }
 
-section h3 {
-    font-size: 20px;
-    margin-top: 40px;
-    margin-bottom: 10px;
-    color: var(--accent);
-}
-
-section p { font-size: 16px; color: var(--text-muted); margin-bottom: 18px; }
-
-/* ---------- CARDS ---------- */
+/* ---------- CARDS & LAYOUT ---------- */
 .card {
     background-color: var(--card-bg);
-    padding: 30px;
-    border-radius: 10px;
+    padding: 40px;
+    border-radius: 12px;
     margin-top: 30px;
     border: 1px solid rgba(255,255,255,0.06);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
     transition: transform 0.3s ease;
 }
 .card:hover { transform: translateY(-5px); }
-
 img {
     width: 100%;
     border-radius: 8px;
@@ -141,24 +120,78 @@ img {
 }
 img:hover { transform: scale(1.02); }
 
+/* ---------- SPLIT LAYOUT FOR ABOUT & CERTIFICATES ---------- */
+.split {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.split .text, .split .images {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* ---------- PROJECTS GRID ---------- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.projects-grid .project {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+.projects-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.projects-grid .caption {
+    position: absolute;
+    bottom: 0;
+    background: rgba(11,19,43,0.85);
+    color: var(--accent);
+    width: 100%;
+    padding: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.projects-grid .project:hover .caption { opacity: 1; }
+
+/* ---------- SKILLS ICONS ---------- */
+.skills { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
+.skill-icon {
+    width: 70px; height: 70px; display: flex; justify-content: center; align-items: center;
+    background-color: var(--accent); color: var(--bg-primary); border-radius: 50%;
+    font-weight: bold; font-size: 1.2rem; transition: transform 0.3s ease;
+}
+.skill-icon:hover { transform: scale(1.2); }
+
 /* ---------- FOOTER ---------- */
 footer {
     background-color: var(--bg-secondary);
-    padding: 60px 20px;
+    padding: 60px 40px;
     text-align: center;
 }
-
 footer a {
-    display: block;
+    display: inline-block;
     color: var(--accent);
     text-decoration: none;
-    margin: 10px 0;
+    margin: 10px 20px;
     font-weight: 500;
     transition: color 0.25s ease;
 }
 footer a:hover { text-decoration: underline; }
 
 /* ---------- RESPONSIVE ---------- */
+@media (max-width: 1024px) {
+    .split { flex-direction: column; }
+    .hero h1 { font-size: 2.5rem; }
+}
 @media (max-width: 768px) {
     .navbar { flex-direction: column; gap: 10px; }
     .nav-links a { margin: 0 10px; }
@@ -192,64 +225,101 @@ footer a:hover { text-decoration: underline; }
     <h1>Pranit Malhotra</h1>
     <p>Aspiring Aerospace Engineer | Aerodynamics & Experimental Design | National STEM Racing Finalist</p>
     <div class="badges">
-        <span class="badge">Top 100 BPhO</span>
-        <span class="badge">UKMT Olympiad</span>
-        <span class="badge">Nationals 3rd Place</span>
+        <span class="badge" data-count="100">Top 100 BPhO</span>
+        <span class="badge" data-count="3">Nationals 3rd Place</span>
+        <span class="badge" data-count="5">UKMT Medals</span>
     </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-    <div class="container card">
-        <h2>About Me</h2>
-        <h3>Professional</h3>
-        <p>Student at St Olave's Grammar School with strong interests in Physics, Mathematics, and Aerospace Engineering. Competed in UKMT Olympiads and nationally in the British Physics Olympiad. Team Blitz – STEM Racing Nationals finalist.</p>
-        <h3>Personal</h3>
-        <p>Focused on applying theory to practical engineering challenges. Passionate about aerodynamics, experimental validation of CFD, and optimising designs under real-world constraints.</p>
+    <h2>About Me</h2>
+    <div class="split">
+        <div class="text card">
+            <h3>Professional</h3>
+            <p>Student at St Olave's Grammar School with strong interests in Physics, Mathematics, and Aerospace Engineering. Competed in UKMT Olympiads and nationally in the British Physics Olympiad. Team Blitz – STEM Racing Nationals finalist.</p>
+            <h3>Personal</h3>
+            <p>Focused on applying theory to practical engineering challenges. Passionate about aerodynamics, experimental validation of CFD, and optimising designs under real-world constraints.</p>
+        </div>
+        <div class="images card">
+            <img src="team_photo.jpg" alt="Team Blitz photo">
+        </div>
     </div>
 </section>
 
 <!-- CERTIFICATES -->
 <section id="certificates">
-    <div class="container card">
-        <h2>Certificates & Achievements</h2>
-        <h3>STEM Racing Nationals — 3rd Place (Team Blitz)</h3>
-        <p><strong>Role:</strong> Aerodynamics & Design Optimisation<br><strong>Outcome:</strong> Top-3 National Finish</p>
-        <img src="Nats 3rd place photo.jpg" alt="Nationals podium">
+    <h2>Certificates & Achievements</h2>
+    <div class="split">
+        <div class="text card">
+            <h3>STEM Racing Nationals — 3rd Place (Team Blitz)</h3>
+            <p><strong>Role:</strong> Aerodynamics & Design Optimisation<br><strong>Outcome:</strong> Top-3 National Finish</p>
 
-        <h3>Airbus Aerospace Work Experience</h3>
-        <p><strong>Focus:</strong> Applied engineering tasks, prototyping & design observation</p>
-        <img src="Screenshot 2025-03-03 202557.png" alt="Airbus certificate">
+            <h3>Airbus Aerospace Work Experience</h3>
+            <p>Applied engineering tasks, prototyping & design observation</p>
 
-        <h3>UKMT Mathematics Challenge</h3>
-        <p>Achievement in Junior & Intermediate Olympiads</p>
-        <img src="jmc.png" alt="UKMT certificate">
+            <h3>UKMT Mathematics Challenge</h3>
+            <p>Achievement in Junior & Intermediate Olympiads</p>
+        </div>
+        <div class="images card">
+            <img src="Nats 3rd place photo.jpg" alt="Nationals podium">
+            <img src="Screenshot 2025-03-03 202557.png" alt="Airbus certificate">
+            <img src="jmc.png" alt="UKMT certificate">
+        </div>
     </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-    <div class="container card">
-        <h2>Engineering Projects</h2>
-        <h3>Portable Wind Tunnel — Arkwright Engineering Project</h3>
-        <p><strong>Objective:</strong> Design a compact tunnel for small-scale aerodynamic testing.</p>
-        <p><strong>Design Constraints:</strong> Low-cost, portable, reliable airflow measurement.</p>
-        <p><strong>Key Decisions:</strong> Contraction section, test chamber, flow straighteners, controlled airflow source.</p>
-        <p><strong>Validation:</strong> Mist-based flow visualisation for model testing.</p>
-        <p><strong>Next Steps:</strong> Integrate sensors and CFD comparison for improved validation.</p>
-        <img src="Screenshot 2026-02-08 152035.png" alt="Wind tunnel project">
+    <h2>Engineering Projects</h2>
+    <div class="projects-grid">
+        <div class="project">
+            <img src="Screenshot 2026-02-08 152035.png" alt="Wind tunnel project">
+            <div class="caption">Portable Wind Tunnel — Arkwright Engineering Project</div>
+        </div>
+        <div class="project">
+            <img src="1 blitz d&e nats .png" alt="D&E Page 1">
+            <div class="caption">D&E Portfolio Page 1 — Team Blitz</div>
+        </div>
+        <div class="project">
+            <img src="2 blitz d&e nats .png" alt="D&E Page 2">
+            <div class="caption">D&E Portfolio Page 2 — Team Blitz</div>
+        </div>
+        <div class="project">
+            <img src="3 blitz d&e nats .png" alt="D&E Page 3">
+            <div class="caption">D&E Portfolio Page 3 — Team Blitz</div>
+        </div>
+        <div class="project">
+            <img src="4 blitz d&e nats .png" alt="D&E Page 4">
+            <div class="caption">D&E Portfolio Page 4 — Team Blitz</div>
+        </div>
+        <div class="project">
+            <img src="5 blitz d&e nats .png" alt="D&E Page 5">
+            <div class="caption">D&E Portfolio Page 5 — Team Blitz</div>
+        </div>
+        <div class="project">
+            <img src="6 blitz d&e nats .png" alt="D&E Page 6">
+            <div class="caption">D&E Portfolio Page 6 — Team Blitz</div>
+        </div>
+        <div class="project">
+            <img src="7 blitz d&e nats .png" alt="D&E Page 7">
+            <div class="caption">D&E Portfolio Page 7 — Team Blitz</div>
+        </div>
     </div>
 </section>
 
 <!-- CURRENT FOCUS -->
 <section id="focus">
-    <div class="container card">
-        <h2>Current Focus</h2>
-        <ul>
-            <li>Advanced aerodynamics & CFD studies using Python & MATLAB</li>
-            <li>Refining wind tunnel experiments & experimental validation</li>
-            <li>Preparing a STEM portfolio for aerospace engineering university applications</li>
-        </ul>
+    <h2>Current & Future Focus</h2>
+    <div class="skills card">
+        <div class="skills">
+            <div class="skill-icon">Python</div>
+            <div class="skill-icon">MATLAB</div>
+            <div class="skill-icon">CAD</div>
+            <div class="skill-icon">CFD</div>
+            <div class="skill-icon">3D Printing</div>
+        </div>
+        <p style="margin-top:20px;">Next steps: preparing for CanSat competitions to expand hands-on aerospace engineering experience.</p>
     </div>
 </section>
 
@@ -263,25 +333,26 @@ footer a:hover { text-decoration: underline; }
 </footer>
 
 <script>
-// Scroll reveal effect for sections and badges
+// Scroll reveal for sections
 const sections = document.querySelectorAll('section');
 const badges = document.querySelectorAll('.badge');
 
 const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
+    entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
 }, { threshold: 0.15 });
-
 sections.forEach(sec => observer.observe(sec));
 
-badges.forEach((badge, i) => {
-    setTimeout(() => {
-        badge.style.opacity = 1;
-        badge.style.transform = 'translateY(0)';
-    }, i * 300);
+// Fade badges in sequence
+badges.forEach((badge,i)=>setTimeout(()=>{badge.style.opacity=1;badge.style.transform='translateY(0)';}, i*300));
+
+// Animated counters for badges
+badges.forEach(badge=>{
+    const target = +badge.dataset.count;
+    let count = 0;
+    const interval = setInterval(()=>{
+        if(count < target){ count++; badge.textContent=`${count}${badge.textContent.replace(/\d+/,'')}`; }
+        else clearInterval(interval);
+    }, 40);
 });
 </script>
 
