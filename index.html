@@ -1,207 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pranit Malhotra | Academic & Engineering Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pranit Malhotra | Engineering Portfolio</title>
 
-    <style>
-        :root {
-            --bg-primary: #0b132b;
-            --bg-secondary: #1c2541;
-            --accent: #5bc0be;
-            --text-primary: #ffffff;
-            --text-muted: #cfd8dc;
-            --card-bg: #24324a;
-        }
+<style>
+:root {
+    --bg-primary: #0b132b;
+    --bg-secondary: #1c2541;
+    --accent: #5bc0be;
+    --text-primary: #ffffff;
+    --text-muted: #cfd8dc;
+    --card-bg: #24324a;
+    --badge-bg: #5bc0be;
+    --badge-text: #0b132b;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+html { scroll-behavior: smooth; }
 
-        body {
-            font-family: "Segoe UI", Inter, system-ui, sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.75;
-        }
+body {
+    font-family: "Segoe UI", Inter, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.7;
+}
 
-        /* ---------------- NAVBAR ---------------- */
+/* ---------- NAVBAR ---------- */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(11,19,43,0.95);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
 
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(11, 19, 43, 0.9);
-            backdrop-filter: blur(8px);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 40px;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
+.navbar h1 { font-size: 20px; font-weight: 600; }
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.25s ease, transform 0.2s ease;
+}
+.nav-links a:hover { color: var(--accent); transform: translateY(-2px); }
 
-        .navbar h1 {
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
+/* ---------- HERO ---------- */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
 
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-left: 28px;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.25s ease;
-        }
+.hero h1 { font-size: 3rem; margin-bottom: 16px; animation: fadeInDown 1s ease forwards; }
+.hero p { font-size: 1.25rem; color: var(--accent); max-width: 800px; animation: fadeInDown 1.2s ease forwards; }
+.badges {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.badge {
+    background-color: var(--badge-bg);
+    color: var(--badge-text);
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(20px);
+}
 
-        .nav-links a:hover {
-            color: var(--accent);
-        }
+/* ---------- SECTION STYLE ---------- */
+section {
+    padding: 100px 20px 80px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
 
-        /* ---------------- SECTIONS ---------------- */
+section.visible { opacity: 1; transform: translateY(0); }
 
-        section {
-            padding: 120px 20px 80px;
-        }
+.container { max-width: 1000px; margin: auto; }
 
-        .container {
-            max-width: 1000px;
-            margin: auto;
-        }
+section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+    padding-bottom: 6px;
+}
 
-        section h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
-        }
+section h3 {
+    font-size: 20px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    color: var(--accent);
+}
 
-        section h3 {
-            font-size: 20px;
-            margin-top: 40px;
-            margin-bottom: 10px;
-            color: var(--accent);
-        }
+section p { font-size: 16px; color: var(--text-muted); margin-bottom: 18px; }
 
-        section p {
-            font-size: 16px;
-            color: var(--text-muted);
-            margin-bottom: 18px;
-        }
+/* ---------- CARDS ---------- */
+.card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 30px;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+.card:hover { transform: translateY(-5px); }
 
-        /* ---------------- CARDS ---------------- */
+img {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 20px;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: transform 0.3s ease;
+}
+img:hover { transform: scale(1.02); }
 
-        .card {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 10px;
-            margin-top: 30px;
-            border: 1px solid rgba(255,255,255,0.06);
-        }
+/* ---------- FOOTER ---------- */
+footer {
+    background-color: var(--bg-secondary);
+    padding: 60px 20px;
+    text-align: center;
+}
 
-        /* ---------------- IMAGES ---------------- */
+footer a {
+    display: block;
+    color: var(--accent);
+    text-decoration: none;
+    margin: 10px 0;
+    font-weight: 500;
+    transition: color 0.25s ease;
+}
+footer a:hover { text-decoration: underline; }
 
-        img {
-            width: 100%;
-            border-radius: 8px;
-            margin-top: 20px;
-            border: 1px solid rgba(255,255,255,0.08);
-        }
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+    .navbar { flex-direction: column; gap: 10px; }
+    .nav-links a { margin: 0 10px; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero p { font-size: 1rem; }
+}
 
-        /* ---------------- FOOTER ---------------- */
-
-        footer {
-            background-color: var(--bg-secondary);
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        footer a {
-            display: block;
-            color: var(--accent);
-            text-decoration: none;
-            margin: 10px 0;
-            font-weight: 500;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* ---------------- RESPONSIVE ---------------- */
-
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .nav-links a {
-                margin: 0 10px;
-            }
-        }
-    </style>
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+</style>
 </head>
-
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <h1>Pranit Malhotra</h1>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#certificates">Certificates</a>
-            <a href="#projects">Projects</a>
-            <a href="#business">Business</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+<!-- NAVBAR -->
+<nav class="navbar">
+    <h1>Pranit Malhotra</h1>
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#projects">Projects</a>
+        <a href="#focus">Focus</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
 
-    <!-- ABOUT -->
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
+<!-- HERO -->
+<section class="hero">
+    <h1>Pranit Malhotra</h1>
+    <p>Aspiring Aerospace Engineer | Aerodynamics & Experimental Design | National STEM Racing Finalist</p>
+    <div class="badges">
+        <span class="badge">Top 100 BPhO</span>
+        <span class="badge">UKMT Olympiad</span>
+        <span class="badge">Nationals 3rd Place</span>
+    </div>
+</section>
 
-            <div class="card">
-                <h3>Professional</h3>
-                <p>
-                    I am a student at St Olave’s Grammar School with strong academic interests in Physics, Mathematics,
-                    and Aerospace Engineering. I have competed in UKMT Olympiads, placed nationally in the British
-                    Physics Olympiad, and represented Team Blitz at STEM Racing Nationals.
-                </p>
+<!-- ABOUT -->
+<section id="about">
+    <div class="container card">
+        <h2>About Me</h2>
+        <h3>Professional</h3>
+        <p>Student at St Olave's Grammar School with strong interests in Physics, Mathematics, and Aerospace Engineering. Competed in UKMT Olympiads and nationally in the British Physics Olympiad. Team Blitz – STEM Racing Nationals finalist.</p>
+        <h3>Personal</h3>
+        <p>Focused on applying theory to practical engineering challenges. Passionate about aerodynamics, experimental validation of CFD, and optimising designs under real-world constraints.</p>
+    </div>
+</section>
 
-                <h3>Personal</h3>
-                <p>
-                    My motivation lies in understanding and applying physical laws to real-world systems.
-                    I am particularly interested in aerodynamics, experimental engineering, and the
-                    intersection between theory and manufacture.
-                </p>
-            </div>
-        </div>
-    </section>
+<!-- CERTIFICATES -->
+<section id="certificates">
+    <div class="container card">
+        <h2>Certificates & Achievements</h2>
+        <h3>STEM Racing Nationals — 3rd Place (Team Blitz)</h3>
+        <p><strong>Role:</strong> Aerodynamics & Design Optimisation<br><strong>Outcome:</strong> Top-3 National Finish</p>
+        <img src="Nats 3rd place photo.jpg" alt="Nationals podium">
 
-    <!-- CERTIFICATES -->
-    <section id="certificates">
-        <div class="container">
-            <h2>Certificates & Achievements</h2>
+        <h3>Airbus Aerospace Work Experience</h3>
+        <p><strong>Focus:</strong> Applied engineering tasks, prototyping & design observation</p>
+        <img src="Screenshot 2025-03-03 202557.png" alt="Airbus certificate">
 
-            <div class="card">
-                <p><strong>STEM Racing Nationals – 3rd Place (Team Blitz)</strong></p>
-                <img src="Nats 3rd place photo.jpg" alt="Nationals podium">
+        <h3>UKMT Mathematics Challenge</h3>
+        <p>Achievement in Junior & Intermediate Olympiads</p>
+        <img src="jmc.png" alt="UKMT certificate">
+    </div>
+</section>
 
-                <p>Airbus Aerospace Work Experience Certificate</p>
-                <img src="Screenshot 2025-03-03 202557.png" alt="Airbus certificate">
+<!-- PROJECTS -->
+<section id="projects">
+    <div class="container card">
+        <h2>Engineering Projects</h2>
+        <h3>Portable Wind Tunnel — Arkwright Engineering Project</h3>
+        <p><strong>Objective:</strong> Design a compact tunnel for small-scale aerodynamic testing.</p>
+        <p><strong>Design Constraints:</strong> Low-cost, portable, reliable airflow measurement.</p>
+        <p><strong>Key Decisions:</strong> Contraction section, test chamber, flow straighteners, controlled airflow source.</p>
+        <p><strong>Validation:</strong> Mist-based flow visualisation for model testing.</p>
+        <p><strong>Next Steps:</strong> Integrate sensors and CFD comparison for improved validation.</p>
+        <img src="Screenshot 2026-02-08 152035.png" alt="Wind tunnel project">
+    </div>
+</section>
 
-                <p>UKMT Mathematics Challenge Result</p>
-                <img src="jmc.png" alt="UKMT certificate">
-            </div>
-        </div>
-    <
+<!-- CURRENT FOCUS -->
+<section id="focus">
+    <div class="container card">
+        <h2>Current Focus</h2>
+        <ul>
+            <li>Advanced aerodynamics & CFD studies using Python & MATLAB</li>
+            <li>Refining wind tunnel experiments & experimental validation</li>
+            <li>Preparing a STEM portfolio for aerospace engineering university applications</li>
+        </ul>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<footer id="contact">
+    <h2>Contact & Links</h2>
+    <a href="https://www.linkedin.com/in/pranit-malhotra-2504ba338/">LinkedIn</a>
+    <a href="https://www.instagram.com/14pranitmalhotra/">Instagram</a>
+    <a href="https://www.instagram.com/team_blitz8/">Team Blitz</a>
+    <a href="https://www.gofundme.com/f/team-blitz8">Team Blitz GoFundMe</a>
+</footer>
+
+<script>
+// Scroll reveal effect for sections and badges
+const sections = document.querySelectorAll('section');
+const badges = document.querySelectorAll('.badge');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.15 });
+
+sections.forEach(sec => observer.observe(sec));
+
+badges.forEach((badge, i) => {
+    setTimeout(() => {
+        badge.style.opacity = 1;
+        badge.style.transform = 'translateY(0)';
+    }, i * 300);
+});
+</script>
+
+</body>
+</html>
