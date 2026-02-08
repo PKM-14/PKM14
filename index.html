@@ -17,185 +17,72 @@
     --badge-text: #0b132b;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
-body {
-    font-family: "Segoe UI", Inter, sans-serif;
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.7;
-}
+body { font-family: "Segoe UI", Inter, sans-serif; background-color: var(--bg-primary); color: var(--text-primary); line-height:1.7; }
 
-/* ---------- NAVBAR ---------- */
+/* NAVBAR */
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(11,19,43,0.95);
-    backdrop-filter: blur(8px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 40px;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: fixed; top:0; width:100%;
+    background: rgba(11,19,43,0.95); backdrop-filter: blur(8px);
+    display:flex; justify-content:space-between; align-items:center; padding:12px 40px; z-index:1000;
 }
-.navbar h1 { font-size: 20px; font-weight: 600; }
-.nav-links a {
-    color: var(--text-muted);
-    text-decoration: none;
-    margin-left: 24px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: color 0.25s ease, transform 0.2s ease;
-}
-.nav-links a:hover { color: var(--accent); transform: translateY(-2px); }
+.navbar h1 { font-size:20px; font-weight:600; }
+.nav-links a { color: var(--text-muted); text-decoration:none; margin-left:24px; font-size:14px; font-weight:500; transition:0.2s ease; }
+.nav-links a:hover { color: var(--accent); transform:translateY(-2px); }
 
-/* ---------- HERO ---------- */
+/* HERO */
 .hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px;
+    height: 100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
+    padding:0 20px;
     background: linear-gradient(rgba(11,19,43,0.7), rgba(11,19,43,0.7)), url('Nats 3rd place photo.jpg') no-repeat center/cover;
 }
-.hero h1 { font-size: 3rem; margin-bottom: 16px; animation: fadeInDown 1s ease forwards; }
-.hero p { font-size: 1.25rem; color: var(--accent); max-width: 1000px; animation: fadeInDown 1.2s ease forwards; }
+.hero h1 { font-size:3rem; margin-bottom:16px; animation:fadeInDown 1s ease forwards; }
+.hero p { font-size:1.25rem; color: var(--accent); max-width: 1200px; animation:fadeInDown 1.2s ease forwards; }
+.hero .hero-badge { background-color: var(--accent); color: var(--bg-primary); padding:8px 16px; border-radius:20px; font-weight:600; font-size:1.1rem; margin-top:12px; }
 
-.badges {
-    display: flex;
-    gap: 16px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.badge {
-    background-color: var(--badge-bg);
-    color: var(--badge-text);
-    padding: 8px 12px;
-    border-radius: 16px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    opacity: 0;
-    transform: translateY(20px);
-}
+/* SECTIONS */
+section { padding:100px 60px 80px; opacity:0; transform:translateY(50px); transition:all 0.8s ease; }
+section.visible { opacity:1; transform:translateY(0); }
+section h2 { font-size:36px; margin-bottom:30px; letter-spacing:0.5px; border-bottom:2px solid var(--accent); display:inline-block; padding-bottom:6px; }
 
-/* ---------- SECTIONS ---------- */
-section {
-    padding: 100px 40px 80px;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease;
-}
-section.visible { opacity: 1; transform: translateY(0); }
-section h2 {
-    font-size: 36px;
-    margin-bottom: 30px;
-    letter-spacing: 0.5px;
-    border-bottom: 2px solid var(--accent);
-    display: inline-block;
-    padding-bottom: 6px;
-}
-
-/* ---------- CARDS ---------- */
-.card {
-    background-color: var(--card-bg);
-    padding: 40px;
-    border-radius: 12px;
-    margin-top: 30px;
-    border: 1px solid rgba(255,255,255,0.06);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-    transition: transform 0.3s ease;
-}
+/* CARDS */
+.card { background-color: var(--card-bg); padding:40px; border-radius:12px; margin-top:30px; border:1px solid rgba(255,255,255,0.06); box-shadow:0 8px 25px rgba(0,0,0,0.25); transition: transform 0.3s ease; }
 .card:hover { transform: translateY(-5px); }
-img { width: 100%; border-radius: 8px; margin-top: 20px; }
+img { width:100%; border-radius:8px; margin-top:20px; }
 
-/* ---------- SPLIT LAYOUT ---------- */
-.split {
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
-    flex-wrap: wrap;
-}
-.split .text, .split .images { flex: 1; min-width: 300px; }
+/* SPLIT */
+.split { display:flex; gap:40px; align-items:flex-start; flex-wrap:wrap; }
 
-/* ---------- PROJECTS GRID ---------- */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
-}
-.project {
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.project img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.4s ease, filter 0.4s ease;
-}
-.project:hover img {
-    transform: scale(1.08);
-    filter: brightness(0.75);
-}
-.project .caption {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 14px;
-    text-align: center;
-    background: rgba(11,19,43,0.8);
-    color: var(--accent);
-    font-weight: 600;
-    font-size: 1.05rem;
-    opacity: 0;
-    transform: translateY(30%);
-    transition: all 0.4s ease;
-}
-.project:hover .caption { opacity: 1; transform: translateY(0); }
-.project:hover { box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
+/* PROJECTS GRID */
+.projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:25px; margin-top:20px; }
+.project { position:relative; overflow:hidden; border-radius:12px; cursor:pointer; transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.project img { width:100%; height:auto; display:block; transition: transform 0.4s ease, filter 0.4s ease; }
+.project:hover img { transform: scale(1.08); filter: brightness(0.75); }
+.project .caption { position:absolute; bottom:0; width:100%; padding:14px; text-align:center; background: rgba(11,19,43,0.8); color: var(--accent); font-weight:600; font-size:1.05rem; opacity:0; transform:translateY(30%); transition:all 0.4s ease; }
+.project:hover .caption { opacity:1; transform:translateY(0); }
+.project:hover { box-shadow:0 15px 35px rgba(0,0,0,0.4); }
 
-/* ---------- SKILLS ---------- */
-.skills { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
-.skill-icon {
-    width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;
-    background-color: var(--accent); color: var(--bg-primary); border-radius: 50%;
-    font-weight: bold; font-size: 0.9rem; transition: transform 0.3s ease;
-}
-.skill-icon:hover { transform: scale(1.2); }
+/* SKILLS */
+.skills { display:flex; gap:30px; flex-wrap:wrap; justify-content:center; margin-top:40px; text-align:center; }
+.skill-icon { width:100px; height:100px; display:flex; justify-content:center; align-items:center; background-color: var(--accent); color: var(--bg-primary); border-radius:50%; font-weight:bold; font-size:1.1rem; transition:transform 0.3s ease; }
+.skill-icon:hover { transform:scale(1.2); }
 
-/* ---------- FOOTER ---------- */
-footer {
-    background-color: var(--bg-secondary);
-    padding: 60px 40px;
-    text-align: center;
-}
-footer a {
-    display: inline-block;
-    color: var(--accent);
-    text-decoration: none;
-    margin: 10px 20px;
-    font-weight: 500;
-    transition: color 0.25s ease;
-}
-footer a:hover { text-decoration: underline; }
+/* FOOTER */
+footer { background-color: var(--bg-secondary); padding:60px 40px; text-align:center; }
+footer a { display:inline-block; color: var(--accent); text-decoration:none; margin:10px 20px; font-weight:500; transition:color 0.25s ease; }
+footer a:hover { text-decoration:underline; }
 
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 1024px) { .split { flex-direction: column; } .hero h1 { font-size: 2.5rem; } }
-@media (max-width: 768px) { .navbar { flex-direction: column; gap: 10px; } .nav-links a { margin: 0 10px; } .hero h1 { font-size: 2.2rem; } .hero p { font-size: 1rem; } }
+/* RESPONSIVE */
+@media (max-width:1024px) { .split { flex-direction:column; } .hero h1 { font-size:2.5rem; } }
+@media (max-width:768px) { .navbar { flex-direction:column; gap:10px; } .nav-links a { margin:0 10px; } .hero h1 { font-size:2.2rem; } .hero p { font-size:1rem; } }
 
-/* ---------- ANIMATIONS ---------- */
-@keyframes fadeInDown { 0% { opacity: 0; transform: translateY(-20px); } 100% { opacity: 1; transform: translateY(0); } }
+/* ANIMATIONS */
+@keyframes fadeInDown { 0% { opacity:0; transform:translateY(-20px);} 100% { opacity:1; transform:translateY(0);} }
+
 </style>
 </head>
+
 <body onload="window.scrollTo(0,0)">
 
 <!-- NAVBAR -->
@@ -205,7 +92,7 @@ footer a:hover { text-decoration: underline; }
         <a href="#about">About</a>
         <a href="#certificates">Certificates</a>
         <a href="#projects">Projects</a>
-        <a href="#focus">Focus</a>
+        <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
     </div>
 </nav>
@@ -213,40 +100,28 @@ footer a:hover { text-decoration: underline; }
 <!-- HERO -->
 <section class="hero">
     <h1>Pranit Malhotra</h1>
-    <p>Aspiring Aerospace Engineer | Aerodynamics & Experimental Design | STEM Racing Nationals Finalist</p>
-    <div class="badges">
-        <span class="badge" data-count="100">Top 100 BPhO</span>
-        <span class="badge" data-count="3">Nationals 3rd Place</span>
-        <span class="badge" data-count="5">UKMT Medals</span>
-    </div>
+    <p>Aspiring Aerospace Engineer | Aerodynamics & Experimental Design</p>
+    <div class="hero-badge">Nationals 3rd Place — Team Blitz</div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
     <h2>About Me</h2>
-    <div class="split">
-        <div class="text card">
-            <h3>Professional</h3>
-            <p>Student at St Olave's Grammar School with strong interests in Physics, Mathematics, and Aerospace Engineering. Competed in UKMT Olympiads and nationally in the British Physics Olympiad. Team Blitz – STEM Racing Nationals finalist.</p>
-            <h3>Personal</h3>
-            <p>Focused on applying theory to practical engineering challenges. Passionate about aerodynamics, experimental validation of CFD, and optimising designs under real-world constraints.</p>
-        </div>
-        <div class="images card">
-            <img src="team_photo.jpg" alt="Team Blitz photo">
-        </div>
+    <div class="card">
+        <p>Student at St Olave's Grammar School with strong interests in Physics, Mathematics, and Aerospace Engineering. Competed in UKMT Olympiads and nationally in the British Physics Olympiad. Team Blitz — STEM Racing Nationals finalist.</p>
+        <p>Focused on applying theory to practical engineering challenges. Passionate about aerodynamics, experimental validation of CFD, and optimising designs under real-world constraints.</p>
     </div>
 </section>
 
 <!-- CERTIFICATES -->
 <section id="certificates">
     <h2>Certificates & Achievements</h2>
-    <div class="split" style="gap:20px;">
-        <div class="images card" style="flex:1.5">
+    <div class="split">
+        <div class="card" style="flex:1.5;">
             <img src="Nats 3rd place photo.jpg" alt="Nationals podium">
             <img src="Screenshot 2025-03-03 202557.png" alt="Airbus certificate">
-            <img src="jmc.png" alt="UKMT certificate">
         </div>
-        <div class="text card" style="flex:1">
+        <div class="card" style="flex:1;">
             <h3>STEM Racing Nationals — 3rd Place (Team Blitz)</h3>
             <p><strong>Role:</strong> Aerodynamics & Design Optimisation<br><strong>Outcome:</strong> Top-3 National Finish</p>
             <h3>Airbus Aerospace Work Experience</h3>
@@ -264,7 +139,7 @@ footer a:hover { text-decoration: underline; }
     <!-- Wind Tunnel -->
     <div class="projects-grid">
         <div class="project">
-            <img src="Screenshot 2026-02-08 152035.png" alt="Wind tunnel project">
+            <img src="Screenshot 2026-02-08 152035.png" alt="Wind tunnel project" style="width:75%; margin:0 auto; display:block;">
             <div class="caption">Portable Wind Tunnel — Arkwright Engineering Project</div>
         </div>
     </div>
@@ -279,20 +154,26 @@ footer a:hover { text-decoration: underline; }
         <div class="project"><img src="6 blitz d&e nats .png" alt="D&E Page 6"><div class="caption">D&E Page 6 — Team Blitz</div></div>
         <div class="project"><img src="7 blitz d&e nats .png" alt="D&E Page 7"><div class="caption">D&E Page 7 — Team Blitz</div></div>
     </div>
+
+    <!-- Future Projects -->
+    <div class="projects-grid" style="margin-top:40px;">
+        <div class="project"><img src="rc_plane_placeholder.png" alt="RC Plane"><div class="caption">Future Project — RC Plane</div></div>
+        <div class="project"><img src="robotic_arm_placeholder.png" alt="Robotic Arm"><div class="caption">Future Project — Robotic Arm</div></div>
+    </div>
 </section>
 
-<!-- CURRENT FOCUS -->
-<section id="focus">
-    <h2>Current & Future Focus</h2>
-    <div class="skills card">
-        <div class="skills">
-            <div class="skill-icon">Python</div>
-            <div class="skill-icon">MATLAB</div>
-            <div class="skill-icon">CAD</div>
-            <div class="skill-icon">CFD</div>
-            <div class="skill-icon">3D Print</div>
-        </div>
-        <p style="margin-top:20px;">Next steps: preparing for CanSat competitions to expand hands-on aerospace engineering experience.</p>
+<!-- SKILLS / FOCUS -->
+<section id="skills">
+    <h2>My Skills & Future Focus</h2>
+    <div class="skills">
+        <div class="skill-icon">Python</div>
+        <div class="skill-icon">MATLAB</div>
+        <div class="skill-icon">CAD</div>
+        <div class="skill-icon">CFD</div>
+        <div class="skill-icon">3D Printing</div>
+    </div>
+    <div class="card" style="margin-top:30px;">
+        <p>Next steps: competing in CanSat, participating in STEM Racing Pro Season, developing RC Plane & Robotic Arm projects.</p>
     </div>
 </section>
 
@@ -308,22 +189,8 @@ footer a:hover { text-decoration: underline; }
 <script>
 // Scroll reveal for sections
 const sections = document.querySelectorAll('section');
-const badges = document.querySelectorAll('.badge');
 const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } }); }, { threshold: 0.15 });
 sections.forEach(sec => observer.observe(sec));
-
-// Fade badges in sequence
-badges.forEach((badge,i)=>setTimeout(()=>{badge.style.opacity=1;badge.style.transform='translateY(0)';}, i*300));
-
-// Animated counters for badges
-badges.forEach(badge=>{
-    const target = +badge.dataset.count;
-    let count = 0;
-    const interval = setInterval(()=>{
-        if(count < target){ count++; badge.textContent=`${count}${badge.textContent.replace(/\d+/,'')}`; }
-        else clearInterval(interval);
-    }, 40);
-});
 </script>
 
 </body>
