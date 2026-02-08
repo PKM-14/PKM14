@@ -19,7 +19,7 @@
 
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
-body { font-family: "Segoe UI", Inter, sans-serif; background-color: var(--bg-primary); color: var(--text-primary); line-height:1.7; }
+body { font-family: "Segoe UI", Inter, sans-serif; background-color: var(--bg-primary); color: var(--text-primary); line-height:1.8; }
 
 /* NAVBAR */
 .navbar {
@@ -51,9 +51,6 @@ section h2 { font-size:36px; margin-bottom:30px; letter-spacing:0.5px; border-bo
 .card:hover { transform: translateY(-5px); }
 img { width:100%; border-radius:8px; margin-top:20px; }
 
-/* SPLIT */
-.split { display:flex; gap:40px; align-items:flex-start; flex-wrap:wrap; }
-
 /* PROJECTS GRID */
 .projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:25px; margin-top:20px; }
 .project { position:relative; overflow:hidden; border-radius:12px; cursor:pointer; transition: transform 0.4s ease, box-shadow 0.4s ease; }
@@ -65,7 +62,7 @@ img { width:100%; border-radius:8px; margin-top:20px; }
 
 /* SKILLS */
 .skills { display:flex; gap:30px; flex-wrap:wrap; justify-content:center; margin-top:40px; text-align:center; }
-.skill-icon { width:100px; height:100px; display:flex; justify-content:center; align-items:center; background-color: var(--accent); color: var(--bg-primary); border-radius:50%; font-weight:bold; font-size:1.1rem; transition:transform 0.3s ease; }
+.skill-icon { width:120px; height:120px; display:flex; justify-content:center; align-items:center; background-color: var(--accent); color: var(--bg-primary); border-radius:50%; font-weight:bold; font-size:1.25rem; transition:transform 0.3s ease; }
 .skill-icon:hover { transform:scale(1.2); }
 
 /* FOOTER */
@@ -74,7 +71,7 @@ footer a { display:inline-block; color: var(--accent); text-decoration:none; mar
 footer a:hover { text-decoration:underline; }
 
 /* RESPONSIVE */
-@media (max-width:1024px) { .split { flex-direction:column; } .hero h1 { font-size:2.5rem; } }
+@media (max-width:1024px) { .hero h1 { font-size:2.5rem; } }
 @media (max-width:768px) { .navbar { flex-direction:column; gap:10px; } .nav-links a { margin:0 10px; } .hero h1 { font-size:2.2rem; } .hero p { font-size:1rem; } }
 
 /* ANIMATIONS */
@@ -82,7 +79,6 @@ footer a:hover { text-decoration:underline; }
 
 </style>
 </head>
-
 <body onload="window.scrollTo(0,0)">
 
 <!-- NAVBAR -->
@@ -93,6 +89,7 @@ footer a:hover { text-decoration:underline; }
         <a href="#certificates">Certificates</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
+        <a href="#hobbies">Hobbies</a>
         <a href="#contact">Contact</a>
     </div>
 </nav>
@@ -108,27 +105,23 @@ footer a:hover { text-decoration:underline; }
 <section id="about">
     <h2>About Me</h2>
     <div class="card">
-        <p>Student at St Olave's Grammar School with strong interests in Physics, Mathematics, and Aerospace Engineering. Competed in UKMT Olympiads and nationally in the British Physics Olympiad. Team Blitz — STEM Racing Nationals finalist.</p>
-        <p>Focused on applying theory to practical engineering challenges. Passionate about aerodynamics, experimental validation of CFD, and optimising designs under real-world constraints.</p>
+        <p>I am Pranit Malhotra, a highly motivated student at St Olave's Grammar School with a strong academic focus in Physics, Mathematics, and Aerospace Engineering. My achievements include competing in the UKMT Junior and Intermediate Olympiads, ranking in the Top 100 nationally in the British Physics Olympiad, and developing a deep understanding of aerodynamics and experimental design through STEM Racing (F1 in Schools).</p>
+        <p>I am passionate about applying theoretical concepts to real-world engineering challenges, optimising design performance, and leveraging data-driven methods for experimental validation. My work on the Arkwright Portable Wind Tunnel project and STEM Racing D&E portfolio reflects my commitment to precision, iterative prototyping, and leadership in team-based engineering projects. I aim to push the boundaries of aerospace engineering while nurturing curiosity, creativity, and problem-solving skills in all my work.</p>
     </div>
 </section>
 
 <!-- CERTIFICATES -->
 <section id="certificates">
     <h2>Certificates & Achievements</h2>
-    <div class="split">
-        <div class="card" style="flex:1.5;">
-            <img src="Nats 3rd place photo.jpg" alt="Nationals podium">
-            <img src="Screenshot 2025-03-03 202557.png" alt="Airbus certificate">
-        </div>
-        <div class="card" style="flex:1;">
-            <h3>STEM Racing Nationals — 3rd Place (Team Blitz)</h3>
-            <p><strong>Role:</strong> Aerodynamics & Design Optimisation<br><strong>Outcome:</strong> Top-3 National Finish</p>
-            <h3>Airbus Aerospace Work Experience</h3>
-            <p>Applied engineering tasks, prototyping & design observation</p>
-            <h3>UKMT Mathematics Challenge</h3>
-            <p>Achievement in Junior & Intermediate Olympiads</p>
-        </div>
+    <div class="card">
+        <img src="Nats 3rd place photo.jpg" alt="Nationals podium">
+        <img src="Screenshot 2025-03-03 202557.png" alt="Airbus certificate">
+        <h3>STEM Racing Nationals — 3rd Place (Team Blitz)</h3>
+        <p><strong>Role:</strong> Aerodynamics & Design Optimisation | <strong>Outcome:</strong> Top-3 National Finish</p>
+        <h3>Airbus Aerospace Work Experience</h3>
+        <p>Applied engineering tasks, prototyping & design observation</p>
+        <h3>UKMT Mathematics Challenge</h3>
+        <p>Achievement in Junior & Intermediate Olympiads</p>
     </div>
 </section>
 
@@ -156,13 +149,13 @@ footer a:hover { text-decoration:underline; }
     </div>
 
     <!-- Future Projects -->
-    <div class="projects-grid" style="margin-top:40px;">
-        <div class="project"><img src="rc_plane_placeholder.png" alt="RC Plane"><div class="caption">Future Project — RC Plane</div></div>
-        <div class="project"><img src="robotic_arm_placeholder.png" alt="Robotic Arm"><div class="caption">Future Project — Robotic Arm</div></div>
+    <div class="card" style="margin-top:40px; font-size:1.2rem; text-align:center;">
+        <h3>Future Projects</h3>
+        <p>RC Plane development and Robotic Arm project to expand hands-on aerospace and engineering experience.</p>
     </div>
 </section>
 
-<!-- SKILLS / FOCUS -->
+<!-- SKILLS -->
 <section id="skills">
     <h2>My Skills & Future Focus</h2>
     <div class="skills">
@@ -172,8 +165,18 @@ footer a:hover { text-decoration:underline; }
         <div class="skill-icon">CFD</div>
         <div class="skill-icon">3D Printing</div>
     </div>
-    <div class="card" style="margin-top:30px;">
+    <div class="card" style="margin-top:30px; font-size:1.1rem;">
         <p>Next steps: competing in CanSat, participating in STEM Racing Pro Season, developing RC Plane & Robotic Arm projects.</p>
+    </div>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies">
+    <h2>Hobbies & Interests</h2>
+    <div class="card">
+        <p>Grade 8 guitar player with a passion for music and creativity.</p>
+        <p>Love solving puzzles, critical thinking challenges, and logic games.</p>
+        <p>Active in sports: rugby and hockey. Captained my school’s U13–U15 rugby teams, demonstrating leadership, teamwork, and strategic thinking.</p>
     </div>
 </section>
 
