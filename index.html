@@ -40,39 +40,87 @@ body { font-family: "Segoe UI", Inter, sans-serif; background-color: var(--bg-pr
 .hero h1 { font-size:3rem; margin-bottom:16px; animation:fadeInDown 1s ease forwards; }
 .hero p { font-size:1.25rem; color: var(--accent); max-width: 1200px; animation:fadeInDown 1.2s ease forwards; }
 .hero .hero-badge { background-color: var(--accent); color: var(--bg-primary); padding:8px 16px; border-radius:20px; font-weight:600; font-size:1.1rem; margin-top:12px; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pranit Malhotra | Engineering Portfolio</title>
+
+<style>
+:root {
+    --bg-primary: #0b132b;
+    --bg-secondary: #1c2541;
+    --accent: #5bc0be;
+    --text-primary: #ffffff;
+    --text-muted: #cfd8dc;
+    --card-bg: #24324a;
+    --badge-bg: #5bc0be;
+    --badge-text: #0b132b;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: "Segoe UI", Inter, sans-serif; background-color: var(--bg-primary); color: var(--text-primary); line-height:1.8; text-align:center; }
+
+/* NAVBAR */
+.navbar {
+    position: fixed; top:0; width:100%;
+    background: rgba(11,19,43,0.95); backdrop-filter: blur(8px);
+    display:flex; justify-content:space-between; align-items:center; padding:12px 40px; z-index:1000;
+}
+.navbar h1 { font-size:22px; font-weight:600; }
+.nav-links a { color: var(--text-muted); text-decoration:none; margin-left:24px; font-size:16px; font-weight:500; transition:0.2s ease; }
+.nav-links a:hover { color: var(--accent); transform:translateY(-2px); }
+
+/* HERO */
+.hero {
+    height: 100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
+    padding:0 20px;
+    background: linear-gradient(rgba(11,19,43,0.7), rgba(11,19,43,0.7)), url('Nats 3rd place photo.jpg') no-repeat center/cover;
+}
+.hero h1 { font-size:3.2rem; margin-bottom:16px; animation:fadeInDown 1s ease forwards; }
+.hero p { font-size:1.5rem; color: var(--accent); max-width: 1200px; animation:fadeInDown 1.2s ease forwards; }
+.hero .hero-badge { background-color: var(--accent); color: var(--bg-primary); padding:8px 16px; border-radius:20px; font-weight:600; font-size:1.2rem; margin-top:12px; }
 
 /* SECTIONS */
 section { padding:100px 60px 80px; opacity:0; transform:translateY(50px); transition:all 0.8s ease; }
 section.visible { opacity:1; transform:translateY(0); }
-section h2 { font-size:36px; margin-bottom:30px; letter-spacing:0.5px; border-bottom:2px solid var(--accent); display:inline-block; padding-bottom:6px; }
+section h2 { font-size:38px; margin-bottom:30px; letter-spacing:0.5px; border-bottom:2px solid var(--accent); display:inline-block; padding-bottom:6px; }
 
 /* CARDS */
-.card { background-color: var(--card-bg); padding:40px; border-radius:12px; margin-top:30px; border:1px solid rgba(255,255,255,0.06); box-shadow:0 8px 25px rgba(0,0,0,0.25); transition: transform 0.3s ease; }
+.card { background-color: var(--card-bg); padding:40px; border-radius:12px; margin-top:30px; border:1px solid rgba(255,255,255,0.06); box-shadow:0 8px 25px rgba(0,0,0,0.25); transition: transform 0.3s ease; font-size:1.2rem; text-align:center; }
 .card:hover { transform: translateY(-5px); }
-img { width:100%; border-radius:8px; margin-top:20px; }
+img { border-radius:8px; margin-top:20px; }
+
+/* CERTIFICATES SECTION */
+.certificate-row { display:flex; align-items:center; justify-content:center; gap:40px; flex-wrap:wrap; margin-top:30px; text-align:left; }
+.certificate-row img { width:25%; min-width:120px; border-radius:8px; }
+.certificate-text { max-width:600px; font-size:1.25rem; }
+.certificate-text h3 { font-size:1.4rem; color: var(--accent); margin-bottom:10px; }
 
 /* PROJECTS GRID */
 .projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:25px; margin-top:20px; }
 .project { position:relative; overflow:hidden; border-radius:12px; cursor:pointer; transition: transform 0.4s ease, box-shadow 0.4s ease; }
 .project img { width:100%; height:auto; display:block; transition: transform 0.4s ease, filter 0.4s ease; }
 .project:hover img { transform: scale(1.08); filter: brightness(0.75); }
-.project .caption { position:absolute; bottom:0; width:100%; padding:14px; text-align:center; background: rgba(11,19,43,0.8); color: var(--accent); font-weight:600; font-size:1.05rem; opacity:0; transform:translateY(30%); transition:all 0.4s ease; }
+.project .caption { position:absolute; bottom:0; width:100%; padding:14px; text-align:center; background: rgba(11,19,43,0.8); color: var(--accent); font-weight:600; font-size:1.15rem; opacity:0; transform:translateY(30%); transition:all 0.4s ease; }
 .project:hover .caption { opacity:1; transform:translateY(0); }
 .project:hover { box-shadow:0 15px 35px rgba(0,0,0,0.4); }
 
 /* SKILLS */
 .skills { display:flex; gap:30px; flex-wrap:wrap; justify-content:center; margin-top:40px; text-align:center; }
-.skill-icon { width:120px; height:120px; display:flex; justify-content:center; align-items:center; background-color: var(--accent); color: var(--bg-primary); border-radius:50%; font-weight:bold; font-size:1.25rem; transition:transform 0.3s ease; }
+.skill-icon { width:120px; height:120px; display:flex; justify-content:center; align-items:center; background-color: var(--accent); color: var(--bg-primary); border-radius:50%; font-weight:bold; font-size:1.3rem; transition:transform 0.3s ease; }
 .skill-icon:hover { transform:scale(1.2); }
 
 /* FOOTER */
-footer { background-color: var(--bg-secondary); padding:60px 40px; text-align:center; }
+footer { background-color: var(--bg-secondary); padding:60px 40px; text-align:center; font-size:1.2rem; }
 footer a { display:inline-block; color: var(--accent); text-decoration:none; margin:10px 20px; font-weight:500; transition:color 0.25s ease; }
 footer a:hover { text-decoration:underline; }
 
 /* RESPONSIVE */
-@media (max-width:1024px) { .hero h1 { font-size:2.5rem; } }
-@media (max-width:768px) { .navbar { flex-direction:column; gap:10px; } .nav-links a { margin:0 10px; } .hero h1 { font-size:2.2rem; } .hero p { font-size:1rem; } }
+@media (max-width:1024px) { .hero h1 { font-size:2.8rem; } }
+@media (max-width:768px) { .navbar { flex-direction:column; gap:10px; } .nav-links a { margin:0 10px; } .hero h1 { font-size:2.2rem; } .hero p { font-size:1.2rem; } }
 
 /* ANIMATIONS */
 @keyframes fadeInDown { 0% { opacity:0; transform:translateY(-20px);} 100% { opacity:1; transform:translateY(0);} }
@@ -105,24 +153,39 @@ footer a:hover { text-decoration:underline; }
 <section id="about">
     <h2>About Me</h2>
     <div class="card">
-        <p>I am Pranit Malhotra, a highly motivated student at St Olave's Grammar School with a strong academic focus in Physics, Mathematics, and Aerospace Engineering. My achievements include competing in the UKMT Junior and Intermediate Olympiads, ranking in the Top 100 nationally in the British Physics Olympiad, and developing a deep understanding of aerodynamics and experimental design through STEM Racing (F1 in Schools).</p>
-        <p>I am passionate about applying theoretical concepts to real-world engineering challenges, optimising design performance, and leveraging data-driven methods for experimental validation. My work on the Arkwright Portable Wind Tunnel project and STEM Racing D&E portfolio reflects my commitment to precision, iterative prototyping, and leadership in team-based engineering projects. I aim to push the boundaries of aerospace engineering while nurturing curiosity, creativity, and problem-solving skills in all my work.</p>
+        <p>I am Pranit Malhotra, a highly motivated student at St Olave's Grammar School with strong academic focus in Physics, Mathematics, and Aerospace Engineering. I have achieved Top 100 nationally in the British Physics Olympiad and competed successfully in UKMT Junior and Intermediate Olympiads.</p>
+        <p>My passion lies in applying theoretical concepts to real-world engineering challenges, optimising design performance, and leveraging data-driven methods for experimental validation. I have experience with STEM Racing (F1 in Schools), the Arkwright Portable Wind Tunnel, and engineering design portfolios. I aim to contribute to aerospace innovation while nurturing curiosity, creativity, and problem-solving skills in all my work.</p>
     </div>
 </section>
 
 <!-- CERTIFICATES -->
 <section id="certificates">
     <h2>Certificates & Achievements</h2>
-    <div class="card">
+
+    <div class="certificate-row">
         <img src="Nats 3rd place photo.jpg" alt="Nationals podium">
-        <img src="Screenshot 2025-03-03 202557.png" alt="Airbus certificate">
-        <h3>STEM Racing Nationals — 3rd Place (Team Blitz)</h3>
-        <p><strong>Role:</strong> Aerodynamics & Design Optimisation | <strong>Outcome:</strong> Top-3 National Finish</p>
-        <h3>Airbus Aerospace Work Experience</h3>
-        <p>Applied engineering tasks, prototyping & design observation</p>
-        <h3>UKMT Mathematics Challenge</h3>
-        <p>Achievement in Junior & Intermediate Olympiads</p>
+        <div class="certificate-text">
+            <h3>STEM Racing Nationals — 3rd Place</h3>
+            <p>As part of Team Blitz, I contributed to aerodynamics and design optimisation, culminating in a top-three national finish. Demonstrated teamwork, project management, and advanced engineering application.</p>
+        </div>
     </div>
+
+    <div class="certificate-row">
+        <img src="Screenshot 2025-03-03 202557.png" alt="Airbus certificate">
+        <div class="certificate-text">
+            <h3>Airbus Aerospace Work Experience</h3>
+            <p>Gained practical experience in engineering tasks, prototyping, and observational design. Enhanced understanding of professional aerospace workflows and applied physics principles.</p>
+        </div>
+    </div>
+
+    <div class="certificate-row">
+        <img src="#" alt="UKMT/BPhO placeholder">
+        <div class="certificate-text">
+            <h3>UKMT Mathematics Challenge & BPhO Top 100</h3>
+            <p>Competitor in UKMT Junior and Intermediate Olympiads, demonstrating advanced problem-solving abilities. Achieved Top 100 nationally in the British Physics Olympiad, reflecting proficiency in complex physics concepts and analytical thinking.</p>
+        </div>
+    </div>
+
 </section>
 
 <!-- PROJECTS -->
@@ -149,7 +212,7 @@ footer a:hover { text-decoration:underline; }
     </div>
 
     <!-- Future Projects -->
-    <div class="card" style="margin-top:40px; font-size:1.2rem; text-align:center;">
+    <div class="card" style="margin-top:40px; font-size:1.3rem; text-align:center;">
         <h3>Future Projects</h3>
         <p>RC Plane development and Robotic Arm project to expand hands-on aerospace and engineering experience.</p>
     </div>
@@ -165,7 +228,7 @@ footer a:hover { text-decoration:underline; }
         <div class="skill-icon">CFD</div>
         <div class="skill-icon">3D Printing</div>
     </div>
-    <div class="card" style="margin-top:30px; font-size:1.1rem;">
+    <div class="card" style="margin-top:30px; font-size:1.2rem;">
         <p>Next steps: competing in CanSat, participating in STEM Racing Pro Season, developing RC Plane & Robotic Arm projects.</p>
     </div>
 </section>
